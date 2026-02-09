@@ -8,34 +8,16 @@ export function CompanyExperience() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const stats = [
-    {
-      icon: TrendingUp,
-      value: "10+",
-      label: "Years in Business"
-    },
-    {
-      icon: Globe2,
-      value: "10+",
-      label: "Countries Served"
-    },
-    {
-      icon: Users,
-      value: "50+",
-      label: "Trusted Partners"
-    },
-    {
-      icon: Award,
-      value: "99.8%",
-      label: "Client Satisfaction"
-    }
+    { icon: TrendingUp, value: "10+", label: "Years in Business" },
+    { icon: Globe2, value: "10+", label: "Countries Served" },
+    { icon: Users, value: "50+", label: "Trusted Partners" },
+    { icon: Award, value: "99.8%", label: "Client Satisfaction" }
   ];
-  
 
   return (
     <section ref={ref} className="experience-section">
       <div className="experience-container">
         
-        {/* Заголовок */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -51,7 +33,7 @@ export function CompanyExperience() {
           </p>
         </motion.div>
 
-        {/* Сетка статистики */}
+        {/* Grid вместо flex для точного контроля */}
         <div className="experience-grid">
           {stats.map((stat, index) => (
             <motion.div

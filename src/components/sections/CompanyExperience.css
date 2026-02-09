@@ -53,33 +53,30 @@
   margin: 0 auto;
 }
 
-/* --- СЕТКА (GRID) --- */
+/* Grid Container - 4 в ряд на десктопе */
 .experience-grid {
   display: grid;
-  /* По умолчанию (ПК) - 4 колонки */
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 32px; 
-
-  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 
 .stat-card {
+  box-sizing: border-box;
   text-align: center;
-  padding: 24px;
+  padding: 40px 20px;
   border-radius: 16px;
   background: linear-gradient(135deg, #f8f9fa, #ffffff);
   border: 1px solid #f3f4f6;
+  transition: all 0.3s ease;
 
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-
-  /* КЛЮЧЕВОЕ */
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  /* Квадратная форма */
+  aspect-ratio: 1 / 1;
 }
-
 
 .stat-card:hover {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
@@ -119,32 +116,53 @@
 }
 
 /* ========================================= */
-/* МОБИЛЬНАЯ АДАПТАЦИЯ (Точно как в примере) */
+/* МОБИЛЬНАЯ АДАПТАЦИЯ (2 в ряд) */
 /* ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .experience-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-
-    /* фикс неровных карточек */
-    grid-auto-rows: 1fr;
   }
 
   .stat-card {
-    height: 100%;
-    min-height: 120px; /* одинаковая высота */
-    padding: 18px 12px;
+    padding: 32px 16px;
   }
+  
+  .stat-value {
+    font-size: 32px;
+  }
+}
 
+/* Дополнительный фикс для совсем маленьких экранов (опционально) */
+@media (max-width: 480px) {
+  .experience-title {
+    font-size: 36px;
+  }
+  
+  .experience-desc {
+    font-size: 16px;
+  }
+  
+  .experience-grid {
+    gap: 12px;
+  }
+  
+  .stat-card {
+    padding: 24px 12px;
+  }
+  
+  .stat-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
+  }
+  
+  .stat-value {
+    font-size: 28px;
+  }
+  
   .stat-label {
     font-size: 13px;
-    margin-top: 4px;
-
-    /* чтобы текст не растягивал карточку */
-    min-height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }

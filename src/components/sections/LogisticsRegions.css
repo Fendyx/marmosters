@@ -1,178 +1,194 @@
 :root {
-    --cloud-white: #f8f9fa;
-    --gold-primary: #d4af37;
-    --text-dark: #2a2a2a;
-    --text-grey: #6b6b6b;
-  }
-  
-  .logistics-section {
-    padding-top: 8rem; /* py-32 */
-    padding-bottom: 8rem;
-    padding-left: 1.5rem; /* px-6 */
-    padding-right: 1.5rem;
-    background-color: var(--cloud-white);
-  }
-  
-  .logistics-container {
-    max-width: 80rem; /* 7xl */
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  /* --- Заголовок --- */
-  .logistics-header {
-    text-align: center;
-    margin-bottom: 5rem; /* mb-20 */
-  }
-  
-  .logistics-title {
-    font-size: 3rem; /* 5xl */
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.05em;
-    color: var(--text-dark);
-    line-height: 1;
-  }
-  
-  .logistics-title span {
-    color: var(--gold-primary);
-  }
-  
-  .logistics-subtitle {
-    font-size: 1.25rem; /* xl */
-    max-width: 48rem; /* 3xl */
-    margin-left: auto;
-    margin-right: auto;
-    letter-spacing: 0.02em;
-    color: var(--text-grey);
-  }
-  
-  /* --- Сетка регионов --- */
-  .regions-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem; /* gap-8 */
-  }
-  
-  /* Карточка региона */
-  .region-card {
-    padding: 2.5rem; /* p-10 */
-    border-radius: 1.5rem; /* 3xl */
-    backdrop-filter: blur(4px); /* backdrop-blur-sm */
-    background-color: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(245, 200, 66, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
-  }
-  
-  /* Шапка карточки (иконка + название) */
-  .region-card-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* gap-4 */
-    margin-bottom: 1.5rem; /* mb-6 */
-  }
-  
-  .region-icon-box {
-    width: 3.5rem; /* w-14 */
-    height: 3.5rem; /* h-14 */
-    border-radius: 0.75rem; /* xl */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    background-color: var(--gold-primary);
-    opacity: 0.9;
-  }
-  
-  .region-icon {
-    color: var(--text-dark);
-  }
-  
-  .region-name {
-    font-size: 1.875rem; /* 3xl */
-    letter-spacing: 0.03em;
-    color: var(--text-dark);
-  }
-  
-  /* Описание и список стран */
-  .region-desc {
-    font-size: 1rem; /* base */
-    margin-bottom: 1.5rem; /* mb-6 */
-    line-height: 1.625;
-    letter-spacing: 0.01em;
-    color: var(--text-grey);
-  }
-  
-  .countries-label {
-    font-size: 0.875rem; /* sm */
-    letter-spacing: 0.08em;
-    margin-bottom: 0.75rem;
-    color: var(--text-dark);
-    text-transform: uppercase;
-  }
-  
-  .countries-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem; /* gap-2 */
-  }
-  
-  .country-tag {
-    padding: 0.5rem 1rem; /* px-4 py-2 */
-    border-radius: 9999px;
-    font-size: 0.875rem; /* sm */
-    backdrop-filter: blur(4px);
-    background-color: rgba(245, 200, 66, 0.2);
-    border: 1px solid rgba(245, 200, 66, 0.3);
-    color: var(--text-dark);
-    letter-spacing: 0.02em;
-  }
-  
-  /* --- Секция статистики (внизу) --- */
-  .stats-grid {
-    margin-top: 3rem; /* mt-12 */
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem; /* gap-6 */
-  }
-  
-  .stat-card {
-    text-align: center;
-    padding: 2rem; /* p-8 */
-    border-radius: 1rem; /* 2xl */
-    backdrop-filter: blur(4px);
-    background-color: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(245, 200, 66, 0.2);
-  }
-  
-  .stat-value {
-    font-size: 3rem; /* 5xl */
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.02em;
-    color: var(--gold-primary);
-  }
-  
-  .stat-label {
-    font-size: 0.875rem; /* sm */
-    letter-spacing: 0.08em;
-    color: var(--text-grey);
-    text-transform: uppercase;
-  }
-  
-  /* Адаптивность */
-  @media (min-width: 768px) {
-    .logistics-title {
-      font-size: 3.75rem; /* 6xl */
-    }
-  
-    .logistics-subtitle {
-      font-size: 1.5rem; /* 2xl */
-    }
-  
-    .regions-grid {
-      grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
-    }
-  
-    .stats-grid {
-      grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
-    }
-  }
+  --cloud-white: #f8f9fa;
+  --gold-primary: #d4af37;
+  --text-dark: #2a2a2a;
+  --text-grey: #6b6b6b;
+}
+
+.log-logistics-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: var(--cloud-white);
+}
+
+.log-logistics-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Заголовок --- */
+.log-logistics-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.log-logistics-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.log-logistics-title span {
+  color: var(--gold-primary);
+}
+
+.log-logistics-subtitle {
+  font-size: 1rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 0.02em;
+  color: var(--text-grey);
+  padding: 0 1rem;
+}
+
+/* --- Сетка регионов --- */
+.log-regions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Карточка региона */
+.log-region-card {
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(245, 200, 66, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.log-region-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.log-region-icon-box {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: var(--gold-primary);
+  opacity: 0.9;
+}
+
+.log-region-icon {
+  color: var(--text-dark);
+  width: 20px;
+  height: 20px;
+}
+
+.log-region-name {
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  color: var(--text-dark);
+}
+
+.log-region-desc {
+  font-size: 0.9375rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.625;
+  letter-spacing: 0.01em;
+  color: var(--text-grey);
+}
+
+.log-countries-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.log-countries-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.log-country-tag {
+  padding: 0.5rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  backdrop-filter: blur(4px);
+  background-color: rgba(245, 200, 66, 0.2);
+  border: 1px solid rgba(245, 200, 66, 0.3);
+  color: var(--text-dark);
+  letter-spacing: 0.02em;
+}
+
+/* --- Секция статистики --- */
+.log-stats-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.log-stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(245, 200, 66, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.log-stat-card:last-child {
+  grid-column: 1 / -1;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.log-stat-value {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+  color: var(--gold-primary);
+  font-weight: 700;
+}
+
+.log-stat-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--text-grey);
+  text-transform: uppercase;
+}
+
+/* Адаптивность */
+@media (min-width: 640px) {
+  .log-logistics-title { font-size: 2.5rem; }
+  .log-logistics-subtitle { font-size: 1.125rem; }
+  .log-region-card { padding: 2rem; }
+  .log-region-icon-box { width: 3rem; height: 3rem; }
+  .log-region-icon { width: 24px; height: 24px; }
+  .log-region-name { font-size: 1.75rem; }
+  .log-stat-value { font-size: 2.5rem; }
+}
+
+@media (min-width: 768px) {
+  .log-logistics-section { padding: 6rem 1.5rem; }
+  .log-logistics-header { margin-bottom: 4rem; }
+  .log-logistics-title { font-size: 3.75rem; }
+  .log-regions-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .log-stats-grid { grid-template-columns: repeat(3, 1fr); margin-top: 3rem; }
+  .log-stat-card:last-child { grid-column: auto; max-width: none; margin: 0; }
+  .log-stat-card { padding: 2rem; }
+}
+
+@media (min-width: 1024px) {
+  .log-logistics-section { padding: 8rem 0; }
+}
