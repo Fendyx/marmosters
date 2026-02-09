@@ -11,13 +11,7 @@ export function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Проверяем, главная ли это страница
   const isHomePage = location.pathname === '/';
-
-  // Логика: Хедер должен быть "Solid" (белый фон, черный текст), если:
-  // 1. Мы не на главной ИЛИ
-  // 2. Мы проскроллили ИЛИ
-  // 3. Открыто мобильное меню (чтобы крестик был виден на белом фоне)
   const isHeaderSolid = !isHomePage || isScrolled || isMobileMenuOpen;
 
   useEffect(() => {
@@ -29,19 +23,16 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Управление кнопкой "назад" на мобильных устройствах
   useEffect(() => {
     if (isMobileMenuOpen) {
       window.history.pushState({ mobileMenuOpen: true }, '');
+      document.body.style.overflow = 'hidden';
 
-      const handlePopState = (event) => {
-        // Если нажали "Назад", закрываем меню
+      const handlePopState = () => {
         setIsMobileMenuOpen(false);
       };
 
       window.addEventListener('popstate', handlePopState);
-      document.body.style.overflow = 'hidden';
-
       return () => {
         window.removeEventListener('popstate', handlePopState);
         document.body.style.overflow = 'unset';
@@ -53,7 +44,7 @@ export function Header() {
 
   const handleNavigation = (section) => {
     const sectionId = section.toLowerCase();
-    setIsMobileMenuOpen(false); 
+    setIsMobileMenuOpen(false);
 
     if (sectionId === 'contact' || sectionId === 'get in touch') {
       navigate('/contact');
@@ -96,7 +87,6 @@ export function Header() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        // Применяем класс 'scrolled' если header должен быть сплошным
         className={`nav-section ${isHeaderSolid ? 'scrolled' : ''}`}
       >
         <div className="nav-container">
@@ -104,8 +94,7 @@ export function Header() {
           {/* Logo */}
           <div 
             className="logo-wrapper" 
-            onClick={handleLogoClick} 
-            style={{ cursor: 'pointer' }}
+            onClick={handleLogoClick}
           >
             <div className="logo-icon-box">
               <img 
@@ -149,7 +138,6 @@ export function Header() {
             className="mobile-menu-btn"
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            {/* Анимация смены иконки для плавности */}
             <AnimatePresence mode='wait'>
                 {isMobileMenuOpen ? (
                     <motion.div
@@ -159,7 +147,7 @@ export function Header() {
                         exit={{ rotate: 90, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                     >
-                        <X size={28} />
+                        <X size={24} />
                     </motion.div>
                 ) : (
                     <motion.div
@@ -169,7 +157,7 @@ export function Header() {
                         exit={{ rotate: -90, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                     >
-                        <Menu size={28} />
+                        <Menu size={24} />
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -200,7 +188,7 @@ export function Header() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                  style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                  style={{ width: '100%' }}
                 >
                   <button
                     onClick={() => handleNavigation(item)}
