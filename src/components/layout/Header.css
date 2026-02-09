@@ -1,222 +1,259 @@
 :root {
-    --gold-primary: #d4af37;
-    --text-dark: #2a2a2a;
-    --text-white: #ffffff;
-  }
+  --gold-primary: #d4af37;
+  --text-dark: #2a2a2a;
+  --text-white: #ffffff;
+}
+
+/* --- Основной контейнер навигации --- */
+.nav-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000; /* Поднял z-index, чтобы быть выше всего */
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  background-color: transparent; /* По умолчанию прозрачный */
+}
+
+/* Состояние: Скролл, Или не главная стр, Или открыто меню */
+.nav-section.scrolled {
+  background-color: rgba(255, 255, 255, 0.95); /* Сделал чуть плотнее */
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem; /* Чуть уменьшаем отступы при скролле для компактности */
+}
+
+.nav-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --- Логотип --- */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon-box {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gold-primary);
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  /* На мобильных теперь показываем всегда, чтобы выглядело профессионально */
+  display: block; 
+  transition: color 0.3s ease;
   
-  /* --- Основной контейнер навигации --- */
-  .nav-section {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
-    padding: 1.5rem; /* py-6 */
-    transition: all 0.3s ease;
-    background-color: transparent;
-  }
+  /* Цвет по умолчанию (на прозрачном фоне) */
+  color: var(--text-white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Если хедер белый (скролл, другая стр, или открыто меню) - текст черный */
+.nav-section.scrolled .logo-text {
+  color: var(--text-dark);
+  text-shadow: none;
+}
+
+/* --- Десктопное меню --- */
+.desktop-menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-item-link {
+  position: relative;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  font-weight: 500;
+  transition: color 0.3s ease;
   
-  /* Состояние при скролле (добавляется через JS) */
-  .nav-section.scrolled {
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  }
+  color: var(--text-white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nav-section.scrolled .nav-item-link {
+  color: var(--text-dark);
+  text-shadow: none;
+}
+
+.link-underline {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--gold-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-item-link:hover .link-underline {
+  width: 100%;
+}
+
+/* --- Кнопка CTA (Desktop) --- */
+.nav-cta-btn {
+  display: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+  background-color: var(--gold-primary);
+  color: var(--text-dark);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.nav-cta-btn:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+/* --- Мобильная кнопка (Гамбургер/Крестик) --- */
+.mobile-menu-btn {
+  display: flex; /* Flex чтобы центрировать иконку внутри */
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
   
-  .nav-container {
-    max-width: 80rem; /* 7xl */
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  /* Цвет иконки по умолчанию */
+  color: var(--text-white); 
   
-  /* --- Логотип --- */
-  .logo-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem; /* gap-2 */
-  }
+  /* Важно! Кнопка должна быть выше полноэкранного меню */
+  z-index: 2002; 
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Когда хедер белый (в т.ч. когда меню открыто), кнопка черная */
+.nav-section.scrolled .mobile-menu-btn {
+  color: var(--text-dark);
+}
+
+/* --- Мобильное меню (На весь экран) --- */
+.mobile-menu-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* 100dvh для мобильных браузеров лучше */
+  height: 100dvh;
+  z-index: 1999; /* Чуть ниже самого хедера */
+  background-color: #ffffff; /* Чисто белый фон */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Центрирование по вертикали */
+  padding: 2rem;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Увеличил отступ между ссылками */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.mobile-nav-link {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
   
-  .logo-icon-box {
-    width: 2.5rem; /* w-10 */
-    height: 2.5rem; /* h-10 */
-    border-radius: 0.5rem; /* rounded-lg */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--gold-primary);
-  }
-  
-  .logo-text {
-    font-size: 1.25rem; /* xl */
-    letter-spacing: 0.05em;
-    font-weight: 600;
-    display: none; /* Скрыт на мобильных по умолчанию */
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-    
-    /* Цвет по умолчанию (на прозрачном фоне) */
-    color: var(--text-white);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Цвет логотипа при скролле */
-  .nav-section.scrolled .logo-text {
-    color: var(--text-dark);
-    text-shadow: none;
-  }
-  
-  /* --- Десктопное меню --- */
+  /* Крупный шрифт для мобилки */
+  font-size: 1.75rem; 
+  letter-spacing: 0.05em;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-link:active {
+  color: var(--gold-primary);
+  transform: scale(0.95);
+}
+
+.mobile-cta-wrapper {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-cta-btn {
+  width: 100%;
+  padding: 1.1rem 2rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  background-color: var(--text-dark); /* Черная кнопка стильнее на белом */
+  color: var(--gold-primary);
+  border: 1px solid var(--text-dark);
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.mobile-cta-btn:active {
+  transform: scale(0.95);
+  background-color: var(--gold-primary);
+  color: var(--text-dark);
+}
+
+/* --- Адаптивность --- */
+@media (min-width: 768px) {
   .desktop-menu {
-    display: none; /* Скрыто на мобильных */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-    gap: 2rem; /* gap-8 */
-  }
-  
-  .nav-item-link {
-    position: relative;
-    font-size: 0.875rem; /* sm */
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-    
-    /* Цвет по умолчанию */
-    color: var(--text-white);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Цвет ссылок при скролле */
-  .nav-section.scrolled .nav-item-link {
-    color: var(--text-dark);
-    text-shadow: none;
-  }
-  
-  /* Подчеркивание при наведении */
-  .link-underline {
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    height: 2px;
-    width: 0;
-    background-color: var(--gold-primary);
-    transition: width 0.3s ease;
-  }
-  
-  .nav-item-link:hover .link-underline {
-    width: 100%;
-  }
-  
-  /* --- Кнопка CTA (Desktop) --- */
-  .nav-cta-btn {
-    display: none; /* Скрыто на мобильных */
-    padding: 0.75rem 1.5rem; /* px-6 py-3 */
-    border-radius: 9999px;
-    font-size: 0.875rem; /* sm */
-    letter-spacing: 0.08em;
-    transition: all 0.3s ease;
-    background-color: var(--gold-primary);
-    color: var(--text-dark);
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-  }
-  
-  .nav-cta-btn:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05);
-  }
-  
-  /* --- Мобильная кнопка (Гамбургер) --- */
-  .mobile-menu-btn {
-    display: block;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    transition: color 0.3s ease;
-    color: var(--text-white); /* По умолчанию */
-  }
-  
-  .nav-section.scrolled .mobile-menu-btn {
-    color: var(--text-dark);
-  }
-  
-  /* --- Мобильное меню (Выпадающее) --- */
-  .mobile-menu-dropdown {
-    display: block; /* Но показывается только если isMobileMenuOpen */
-    margin-top: 1.5rem;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    overflow: hidden;
-    
-    /* Glassmorphism */
-    backdrop-filter: blur(16px);
-    background-color: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(245, 200, 66, 0.2);
-  }
-  
-  .mobile-nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
-    flex-direction: column;
-    gap: 1rem; /* space-y-4 */
   }
-  
-  .mobile-nav-link {
+
+  .nav-cta-btn {
     display: block;
-    font-size: 1rem;
-    letter-spacing: 0.08em;
-    color: var(--text-dark);
-    text-decoration: none;
-    transition: color 0.2s ease;
+  }
+
+  .mobile-menu-btn {
+    display: none;
   }
   
-  .mobile-nav-link:hover {
-    color: var(--gold-primary);
+  .mobile-menu-fullscreen {
+    display: none !important;
   }
-  
-  .mobile-cta-wrapper {
-    padding-top: 1rem;
-  }
-  
-  .mobile-cta-btn {
-    width: 100%;
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    letter-spacing: 0.08em;
-    background-color: var(--gold-primary);
-    color: var(--text-dark);
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-  }
-  
-  /* --- Медиа-запросы (Адаптивность) --- */
-  @media (min-width: 768px) {
-    .logo-text {
-      display: block;
-    }
-  
-    .desktop-menu {
-      display: flex;
-    }
-  
-    .nav-cta-btn {
-      display: block;
-    }
-  
-    .mobile-menu-btn {
-      display: none;
-    }
-    
-    .mobile-menu-dropdown {
-      display: none !important; /* На всякий случай скрываем выпадающее меню на десктопе */
-    }
-  }
+}

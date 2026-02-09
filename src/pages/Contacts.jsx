@@ -17,7 +17,7 @@ export default function Contacts() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         
-        {/* Left Column: Info & Actions */}
+        {/* Контент с контактами */}
         <div className="contact-content">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -57,7 +57,7 @@ export default function Contacts() {
                 </div>
               </div>
 
-              {/* Location (Optional placeholder) */}
+              {/* Location */}
               <div className="detail-item">
                 <div className="detail-icon-box">
                   <MapPin size={24} />
@@ -103,17 +103,6 @@ export default function Contacts() {
               </div>
             </div>
           </motion.div>
-        </div>
-
-        {/* Right Column: Visual / Image */}
-        <div className="contact-visual">
-          <div className="visual-overlay" />
-          {/* Используем абстрактное изображение или карту */}
-          <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
-            alt="Business district architecture" 
-            className="visual-image"
-          />
         </div>
 
       </motion.div>

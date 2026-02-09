@@ -1,218 +1,228 @@
 :root {
-    --cloud-white: #f8f9fa;
-    --gold-primary: #d4af37;
-    --text-dark: #2a2a2a;
-    --text-grey: #6b6b6b;
-    --whatsapp-green: #25D366;
-    --telegram-blue: #0088cc;
-  }
-  
+  --cloud-white: #f8f9fa;
+  --gold-primary: #d4af37;
+  --text-dark: #2a2a2a;
+  --text-grey: #6b6b6b;
+  --whatsapp-green: #25D366;
+  --telegram-blue: #0088cc;
+}
+
+.contact-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background-color: var(--cloud-white);
+  /* Легкий фоновый паттерн */
+  background-image: radial-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  padding-top: 80px;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 56rem; /* Уменьшили с 72rem */
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* --- Контент --- */
+.contact-content {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-primary);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.contact-title {
+  font-size: 2rem;
+  line-height: 1.2;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.contact-desc {
+  font-size: 1rem;
+  color: var(--text-grey);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Блоки с деталями (Email, Phone, Location) */
+.contact-details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.detail-icon-box {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background-color: rgba(212, 175, 55, 0.1);
+  color: var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.detail-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 0.8125rem;
+  color: var(--text-grey);
+  margin-bottom: 0.25rem;
+}
+
+.detail-value {
+  font-size: 1.125rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.detail-value:hover {
+  color: var(--gold-primary);
+}
+
+/* --- Кнопки мессенджеров --- */
+.messengers-wrapper {
+  margin-top: auto;
+}
+
+.messengers-title {
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.messengers-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.msg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  font-size: 0.9375rem;
+}
+
+/* Стили для WhatsApp */
+.msg-btn.whatsapp {
+  background-color: rgba(37, 211, 102, 0.1);
+  color: #128C7E;
+  border-color: rgba(37, 211, 102, 0.2);
+}
+
+.msg-btn.whatsapp:hover {
+  background-color: #25D366;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+}
+
+/* Стили для Telegram */
+.msg-btn.telegram {
+  background-color: rgba(0, 136, 204, 0.1);
+  color: #0088cc;
+  border-color: rgba(0, 136, 204, 0.2);
+}
+
+.msg-btn.telegram:hover {
+  background-color: #0088cc;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 136, 204, 0.2);
+}
+
+.btn-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+/* Адаптивность */
+@media (min-width: 640px) {
   .contact-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6rem 1.5rem; /* py-24 px-6 */
-    background-color: var(--cloud-white);
-    /* Легкий фоновый паттерн */
-    background-image: radial-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
+    padding: 4rem 1.5rem;
   }
-  
-  .contact-container {
-    width: 100%;
-    max-width: 72rem; /* 6xl */
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    border-radius: 2rem; /* 3xl */
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  
-  /* --- Левая часть (Контент) --- */
+
   .contact-content {
-    padding: 3rem; /* p-12 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 2.5rem 2rem;
   }
-  
-  .contact-label {
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--gold-primary);
-    margin-bottom: 1rem;
-    font-weight: 600;
-  }
-  
+
   .contact-title {
-    font-size: 3rem; /* 5xl */
-    line-height: 1.1;
-    color: var(--text-dark);
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
   }
-  
+
   .contact-desc {
     font-size: 1.125rem;
-    color: var(--text-grey);
-    margin-bottom: 3rem;
-    line-height: 1.6;
   }
-  
-  /* Блоки с деталями (Email, Phone) */
-  .contact-details-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 3rem;
-  }
-  
-  .detail-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-  
+
   .detail-icon-box {
     width: 3.5rem;
     height: 3.5rem;
-    border-radius: 1rem;
-    background-color: rgba(212, 175, 55, 0.1);
-    color: var(--gold-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
   }
-  
-  .detail-text-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .detail-label {
-    font-size: 0.875rem;
-    color: var(--text-grey);
-    margin-bottom: 0.25rem;
-  }
-  
+
   .detail-value {
     font-size: 1.25rem;
-    color: var(--text-dark);
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.2s;
   }
-  
-  .detail-value:hover {
-    color: var(--gold-primary);
+}
+
+@media (min-width: 768px) {
+  .contact-section {
+    padding: 5rem 2rem;
   }
-  
-  /* --- Кнопки мессенджеров --- */
-  .messengers-wrapper {
-    margin-top: auto;
+
+  .contact-content {
+    padding: 3rem 3rem;
   }
-  
-  .messengers-title {
-    font-size: 0.875rem;
-    color: var(--text-dark);
-    margin-bottom: 1rem;
-    font-weight: 600;
+
+  .contact-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
   }
-  
-  .messengers-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+
+  .contact-details-grid {
+    gap: 2rem;
+    margin-bottom: 3rem;
   }
-  
-  .msg-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 2rem;
-    border-radius: 1rem;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
+
+  .detail-item {
+    gap: 1.5rem;
   }
-  
-  /* Стили для WhatsApp */
-  .msg-btn.whatsapp {
-    background-color: rgba(37, 211, 102, 0.1);
-    color: #128C7E; /* Более темный зеленый для текста */
-    border-color: rgba(37, 211, 102, 0.2);
-  }
-  
-  .msg-btn.whatsapp:hover {
-    background-color: #25D366;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
-  }
-  
-  /* Стили для Telegram */
-  .msg-btn.telegram {
-    background-color: rgba(0, 136, 204, 0.1);
-    color: #0088cc;
-    border-color: rgba(0, 136, 204, 0.2);
-  }
-  
-  .msg-btn.telegram:hover {
-    background-color: #0088cc;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 136, 204, 0.2);
-  }
-  
-  .btn-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    fill: currentColor; /* Иконка наследует цвет текста */
-  }
-  
-  /* --- Правая часть (Декор / Карта) --- */
-  .contact-visual {
-    position: relative;
-    background-color: var(--text-dark);
-    min-height: 300px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .visual-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), transparent);
-    z-index: 10;
-  }
-  
-  .visual-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-  }
-  
-  /* Адаптивность */
-  @media (min-width: 900px) {
-    .contact-container {
-      grid-template-columns: 1.2fr 1fr; /* Левая часть чуть шире */
-    }
-    
-    .contact-content {
-      padding: 4rem; /* p-16 */
-    }
-  
-    .contact-visual {
-      min-height: auto; /* Высота равна контенту */
-    }
-  }
+}
