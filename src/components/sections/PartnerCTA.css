@@ -6,128 +6,121 @@
 }
 
 .cta-section {
-  padding: 4rem 1rem; /* Уменьшили отступы на мобилках */
+  padding: 2rem 1rem; /* Сильно уменьшили внешние отступы */
   background-color: var(--pearl-grey);
 }
 
 .cta-container {
-  max-width: 80rem;
+  max-width: 75rem;
   margin: 0 auto;
 }
 
-/* Карточка CTA */
 .cta-card {
   position: relative;
-  padding: 2.5rem 1.5rem; /* Компактно для мобильных */
-  border-radius: 1.5rem;
-  text-align: center;
+  padding: 2rem 1.5rem;
+  border-radius: 1.25rem;
   overflow: hidden;
-  backdrop-filter: blur(16px);
-  background-color: rgba(245, 200, 66, 0.1);
+  background-color: rgba(245, 200, 66, 0.05);
   border: 1px solid rgba(245, 200, 66, 0.2);
-  box-shadow: 0 10px 30px rgba(245, 200, 66, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .cta-bg-pattern {
   position: absolute;
   inset: 0;
-  opacity: 0.15;
+  opacity: 0.2;
   pointer-events: none;
 }
 
 .cta-content {
   position: relative;
   z-index: 10;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .cta-title {
-  font-size: 1.875rem; /* 30px для мобильных */
-  margin-bottom: 1rem;
-  letter-spacing: 0.02em;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
   color: var(--text-dark);
-  line-height: 1.2;
+  font-weight: 700;
 }
 
 .cta-title span {
-  display: block; /* Выносим бренд на новую строку на мобилках для акцента */
   color: var(--gold-primary);
 }
 
 .cta-text {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  max-width: 100%;
+  font-size: 0.95rem;
   color: var(--text-grey-dark);
-  line-height: 1.5;
+  margin: 0;
 }
 
-/* Кнопка */
 .cta-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  padding: 1rem 1.5rem;
-  width: 100%; /* На мобилках кнопка на всю ширину */
-  max-width: 320px; /* Но не слишком огромная */
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 600;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  width: 100%;
+  max-width: 280px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
   letter-spacing: 0.05em;
-  transition: all 0.3s ease;
   background-color: var(--gold-primary);
-  color: white; /* Для лучшей читаемости на золотом */
+  color: white;
   border: none;
   cursor: pointer;
-  text-transform: uppercase;
+  transition: all 0.3s ease;
 }
 
-/* --- Адаптивность для Планшетов (768px+) --- */
-@media (min-width: 768px) {
+/* --- Десктопная версия (строка) --- */
+@media (min-width: 1024px) {
   .cta-section {
-    padding: 8rem 2rem;
+    padding: 3rem 2rem;
   }
 
   .cta-card {
-    padding: 5rem 3rem;
+    padding: 2.5rem 4rem;
+    text-align: left;
+  }
+
+  .cta-content {
+    flex-direction: row; /* Выстраиваем в линию */
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .cta-text-group {
+    flex: 1;
   }
 
   .cta-title {
-    font-size: 3rem;
-  }
-
-  .cta-title span {
-    display: inline; /* Возвращаем в строку */
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
   }
 
   .cta-text {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
 
   .cta-btn {
     width: auto;
-    padding: 1.25rem 2.5rem;
-    font-size: 1.125rem;
-  }
-}
-
-/* --- Адаптивность для Десктопов (1024px+) --- */
-@media (min-width: 1024px) {
-  .cta-title {
-    font-size: 3.75rem;
-  }
-
-  .cta-card {
-    padding: 6rem 4rem;
+    padding: 1rem 2rem;
+    flex-shrink: 0; /* Чтобы кнопка не сжималась */
   }
 }
 
 .cta-btn:hover {
-  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
 }
 
 .cta-arrow-icon {
@@ -135,5 +128,5 @@
 }
 
 .cta-btn:hover .cta-arrow-icon {
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
