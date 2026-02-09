@@ -1,0 +1,134 @@
+.mission-section {
+  /* Уменьшаем огромные отступы сверху/снизу для мобильных */
+  padding-top: 4rem; 
+  padding-bottom: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: var(--cloud-white, #f9f9f9); /* Fallback цвет */
+  overflow: hidden; /* Чтобы анимация сбоку не растягивала экран */
+}
+
+.mission-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mission-grid {
+  display: grid;
+  align-items: center;
+  /* НА МОБИЛЬНОМ: Сетка из 2 колонок.
+     1.3fr (текст) и 0.7fr (картинка). Текст занимает ~65% ширины */
+  grid-template-columns: 1.3fr 0.7fr; 
+  gap: 1rem; /* Маленький зазор между текстом и фото */
+}
+
+/* --- ТИПОГРАФИКА --- */
+
+.mission-title {
+  /* Уменьшенный заголовок для мобильных */
+  font-size: 1.75rem; 
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+  color: #2a2a2a;
+  word-wrap: break-word; /* На всякий случай */
+}
+
+.mission-title span {
+  color: var(--gold-primary, #d4af37);
+  display: block; /* Перенос слова бренда на новую строку для акцента */
+}
+
+.mission-text {
+  font-size: 0.85rem; /* Мелкий, но читаемый шрифт для мобилок */
+  line-height: 1.4;
+  color: #6b6b6b;
+  margin-bottom: 0; /* Убираем лишние отступы */
+}
+
+/* --- УПРАВЛЕНИЕ ВИДИМОСТЬЮ ТЕКСТА --- */
+
+.text-desktop {
+  display: none; /* Скрываем длинный текст на телефоне */
+}
+
+.text-mobile {
+  display: block; /* Показываем короткий */
+}
+
+/* --- КАРТИНКА --- */
+
+.mission-image-wrapper {
+  position: relative;
+  /* На мобильном картинка вытянутая по вертикали, но узкая */
+  height: 250px; 
+  width: 100%;
+  border-radius: 1rem; 
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.mission-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mission-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(245, 200, 66, 0.1) 0%, transparent 50%);
+}
+
+/* ========================================= */
+/* DESKTOP (Начиная с планшетов и выше)      */
+/* ========================================= */
+
+@media (min-width: 768px) {
+  .mission-section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .mission-grid {
+    grid-template-columns: repeat(2, 1fr); /* Ровно пополам */
+    gap: 4rem;
+  }
+
+  /* Переключаем видимость текстов */
+  .text-desktop {
+    display: block;
+  }
+  .text-mobile {
+    display: none;
+  }
+
+  .mission-title {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .mission-title span {
+    display: inline; /* Возвращаем в строку */
+  }
+
+  .mission-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .mission-image-wrapper {
+    height: 500px; /* Большая картинка */
+    border-radius: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+    .mission-title {
+        font-size: 4rem;
+    }
+}

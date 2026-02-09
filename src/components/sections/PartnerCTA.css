@@ -1,0 +1,139 @@
+:root {
+  --pearl-grey: #f5f5f5;
+  --gold-primary: #d4af37;
+  --text-dark: #2a2a2a;
+  --text-grey-dark: #4a4a4a;
+}
+
+.cta-section {
+  padding: 4rem 1rem; /* Уменьшили отступы на мобилках */
+  background-color: var(--pearl-grey);
+}
+
+.cta-container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+/* Карточка CTA */
+.cta-card {
+  position: relative;
+  padding: 2.5rem 1.5rem; /* Компактно для мобильных */
+  border-radius: 1.5rem;
+  text-align: center;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  background-color: rgba(245, 200, 66, 0.1);
+  border: 1px solid rgba(245, 200, 66, 0.2);
+  box-shadow: 0 10px 30px rgba(245, 200, 66, 0.1);
+}
+
+.cta-bg-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta-title {
+  font-size: 1.875rem; /* 30px для мобильных */
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.cta-title span {
+  display: block; /* Выносим бренд на новую строку на мобилках для акцента */
+  color: var(--gold-primary);
+}
+
+.cta-text {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 100%;
+  color: var(--text-grey-dark);
+  line-height: 1.5;
+}
+
+/* Кнопка */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  width: 100%; /* На мобилках кнопка на всю ширину */
+  max-width: 320px; /* Но не слишком огромная */
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  background-color: var(--gold-primary);
+  color: white; /* Для лучшей читаемости на золотом */
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* --- Адаптивность для Планшетов (768px+) --- */
+@media (min-width: 768px) {
+  .cta-section {
+    padding: 8rem 2rem;
+  }
+
+  .cta-card {
+    padding: 5rem 3rem;
+  }
+
+  .cta-title {
+    font-size: 3rem;
+  }
+
+  .cta-title span {
+    display: inline; /* Возвращаем в строку */
+  }
+
+  .cta-text {
+    font-size: 1.25rem;
+  }
+
+  .cta-btn {
+    width: auto;
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+  }
+}
+
+/* --- Адаптивность для Десктопов (1024px+) --- */
+@media (min-width: 1024px) {
+  .cta-title {
+    font-size: 3.75rem;
+  }
+
+  .cta-card {
+    padding: 6rem 4rem;
+  }
+}
+
+.cta-btn:hover {
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
+.cta-arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.cta-btn:hover .cta-arrow-icon {
+  transform: translateX(5px);
+}

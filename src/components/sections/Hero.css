@@ -1,0 +1,254 @@
+:root {
+  --gold-primary: #d4af37;
+  --text-white: #ffffff;
+  --text-grey: #e0e0e0;
+  --text-dark: #2a2a2a;
+}
+
+.hero-section {
+  position: relative;
+  /* Используем dvh для корректного отображения на мобильных с адресной строкой */
+  height: 100vh;
+  height: 100dvh; 
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Фон и затемнение */
+.hero-bg-wrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  /* Добавляем позиционирование, чтобы центр картинки был всегда виден на мобильных */
+  object-position: center; 
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.6)
+  );
+}
+
+/* Контент */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.hero-container {
+  max-width: 72rem;
+  width: 100%;
+  text-align: center;
+}
+
+.hero-anim-wrapper {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Текстовые стили (Mobile First подход) */
+
+/* 1. Подзаголовок */
+.hero-subtitle {
+  margin-bottom: 0.75rem; /* Меньше отступ на мобильных */
+  font-size: 1rem;       /* Компактный шрифт */
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--gold-primary);
+}
+
+/* 2. Заголовок */
+.hero-title {
+  font-size: 2.5rem;    /* Оптимально для телефонов */
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.5rem;
+}
+
+.hero-title span {
+  color: var(--gold-primary);
+  display: inline-block; /* Чтобы слово не разрывалось некрасиво */
+}
+
+/* 3. Описание */
+.hero-description {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  font-size: 1rem;      /* Читаемый текст на мобильном */
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  max-width: 100%;
+  padding: 0 0.5rem;    /* Небольшие отступы по бокам */
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text-white); /* Чуть светлее для контраста */
+}
+
+/* КНОПКА (Базовые стили для мобильных) */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  
+  /* Компактные размеры для телефона */
+  padding: 0.875rem 1.5rem; 
+  font-size: 0.875rem;     /* 14px */
+  border-radius: 12px;
+  
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+  background-color: var(--gold-primary);
+  color: var(--text-dark);
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  width: auto;
+  max-width: 90%; /* Чтобы не вылезала на очень узких экранах */
+}
+
+.hero-btn .hero-arrow-icon {
+  width: 18px; /* Чуть меньше иконка на мобильном */
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.hero-btn:active {
+  transform: scale(0.98); /* Эффект нажатия на таче */
+}
+
+/* Индикатор скролла */
+.scroll-indicator-wrapper {
+  position: absolute;
+  bottom: 1.5rem; /* Чуть выше на мобильных */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.mouse-icon {
+  width: 20px;   /* Чуть меньше */
+  height: 32px;
+  border-radius: 9999px;
+  border: 2px solid var(--gold-primary);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 4px;
+}
+
+.mouse-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--gold-primary);
+}
+
+/* ========================================= */
+/* АДАПТИВНОСТЬ (Media Queries)              */
+/* ========================================= */
+
+/* Планшеты и небольшие ноутбуки (от 768px) */
+@media (min-width: 768px) {
+  .hero-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 4.5rem; /* Значительно больше */
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    max-width: 40rem;
+  }
+
+  /* Кнопка становится больше */
+  .hero-btn {
+    padding: 1.125rem 2.5rem;
+    font-size: 1rem;
+    border-radius: 15px;
+    gap: 0.75rem;
+  }
+  
+  .hero-btn .hero-arrow-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero-btn:hover {
+    box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.3); /* Золотая тень */
+    transform: translateY(-2px);
+  }
+
+  .hero-btn:hover .hero-arrow-icon {
+    transform: translateX(0.5rem);
+  }
+
+  .scroll-indicator-wrapper {
+    bottom: 2.5rem;
+  }
+  
+  .mouse-icon {
+    width: 24px;
+    height: 40px;
+    border-width: 2px;
+    padding: 6px;
+  }
+  
+  .mouse-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* Большие десктопы (от 1024px и выше) */
+@media (min-width: 1280px) {
+  .hero-subtitle {
+    font-size: 1.875rem;
+  }
+
+  .hero-title {
+    font-size: 6rem; /* Огромный заголовок как в оригинале */
+  }
+
+  .hero-description {
+    font-size: 1.5rem;
+    max-width: 48rem;
+  }
+  
+  /* Максимальный размер кнопки для больших экранов */
+  .hero-btn {
+    padding: 1.25rem 3rem;
+    font-size: 1.125rem;
+  }
+}
