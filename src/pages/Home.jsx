@@ -49,6 +49,8 @@ export default function Home() {
           sunflowerImage="https://images.unsplash.com/photo-1763431542929-a151b710f0a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdW5mbG93ZXIlMjBmaWVsZCUyMGFncmljdWx0dXJlfGVufDF8fHx8MTc3MDU5MzczNnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
           rapeseedImage="https://images.unsplash.com/photo-1663224544362-c2f15dad6e7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYXBlc2VlZCUyMGllbGxvdyUyMGZpZWxkJTIwbGFuZHNjYXBlfGVufDF8fHx8MTc3MDU5MzczNnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
           energyImage="https://images.unsplash.com/photo-1589007716619-42656585dd85?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          fertilizerImage="https://st2.depositphotos.com/16122460/44388/i/450/depositphotos_443886512-stock-photo-mineral-fertilizer-woman-planting-young.jpg"
+          chemicalUreaImage="/urea.jpeg"
         />
       </div>
       

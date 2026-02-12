@@ -7,7 +7,9 @@ export function Products({
   grainImage, 
   sunflowerImage, 
   rapeseedImage, 
-  energyImage 
+  energyImage ,
+  fertilizerImage,          
+  chemicalUreaImage         
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -45,9 +47,92 @@ export function Products({
             Our <span>Products</span>
           </h2>
           <p className="divisions-subtitle">
-            Two complementary sectors powering global commerce and energy needs
+            Three complementary sectors powering global commerce and energy needs
           </p>
         </motion.div>
+
+        {/* Mineral Fertilizers Sector */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+          className="sector-block"
+        >
+          <div className="sector-header">
+            <div className="sector-icon-box">
+              <Wheat size={28} className="sector-icon" />
+            </div>
+            <h3 className="sector-name">
+              Mineral Fertilizers
+            </h3>
+          </div>
+
+          <div className="agri-grid">
+
+            {/* LEFT CARD — fertilizers */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              className="product-card agri-card-height"
+            >
+              <img
+                src={fertilizerImage}
+                alt="Mineral fertilizers"
+                className="card-bg-image"
+              />
+              <div className="card-overlay" />
+
+              <div className="card-content">
+                <h4 className="card-title">
+                  Mineral Fertilizers
+                </h4>
+
+                <div className="card-badges">
+                  <span className="badge">Urea</span>
+                  <span className="badge">Ammonium nitrate</span>
+                  <span className="badge">NPK</span>
+                </div>
+
+                <p className="card-desc">
+                  Nitrogen and complex mineral fertilizers for modern agriculture and high-yield crop production
+                </p>
+              </div>
+            </motion.div>
+
+            {/* RIGHT CARD — chemical industry urea */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+              className="product-card agri-card-height"
+            >
+              <img
+                src={chemicalUreaImage}
+                alt="Urea for chemical industry"
+                className="card-bg-image"
+              />
+              <div className="card-overlay" />
+
+              <div className="card-content">
+                <h4 className="card-title">
+                  Urea for Chemical Industry
+                </h4>
+
+                <div className="card-badges">
+                  <span className="badge">INDUSTRIAL GRADE</span>
+                  <span className="badge">UREA</span>
+                </div>
+
+                <p className="card-desc">
+                  High-purity urea for resins, chemicals, AdBlue and industrial production
+                </p>
+              </div>
+            </motion.div>
+
+          </div>
+        </motion.div>
+
 
         {/* Agricultural Sector */}
         <motion.div
